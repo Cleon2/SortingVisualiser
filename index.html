@@ -44,6 +44,19 @@
           </div>
         </div>
 
+        <form class="sort-form" action="">
+          <select class="sort-dropdown">
+            <option value="bubble">Bubble</option>
+            <option value="selection">Selection</option>
+            <option value="insertion">Insertion</option>
+            <option value="shell">Shell</option>
+            <option value="heap">Heap</option>
+            <option value="merge">Merge</option>
+            <option value="quick">Quick</option>
+          </select>
+          <input class="sort-submit" type="submit" value="Run" />
+        </form>
+
         <div class="btn-container">
           <button class="btn btn-sort btn-quick-sort">Quick</button>
           <button class="btn btn-sort btn-merge-sort">Merge</button>
@@ -55,12 +68,14 @@
         </div>
       </nav>
     </header>
+
     <p class="info count-label">
       Number of elements: <span class="element-count">0</span>
     </p>
     <p class="info best">Best: <span class="big-O best-span"></span></p>
     <p class="info average">Avg: <span class="big-O average-span"></span></p>
     <p class="info worst">Worst: <span class="big-O worst-span"></span></p>
+
     <div id="visualiser-container"></div>
   </body>
 </html>

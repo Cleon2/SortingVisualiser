@@ -1,10 +1,11 @@
 * {
   box-sizing: border-box;
   margin: 0;
+  overflow: hidden;
 }
 
 html {
-  font-size: 10px;
+  font-size: 16px;
 }
 
 header {
@@ -23,7 +24,7 @@ h1 {
 
 nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   padding-bottom: 0.5em;
   margin-bottom: 0.5em;
 }
@@ -32,7 +33,7 @@ nav {
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  height: 70vh;
+  height: 73vh;
 }
 
 .bar {
@@ -44,7 +45,7 @@ nav {
 .bar-small {
   background-color: rgb(101, 236, 223);
   border: 1px solid rgba(0, 0, 0, 0.02);
-  width: 3px;
+  width: 5px;
 }
 
 /* Utility corner */
@@ -60,7 +61,7 @@ nav {
 .utility-div {
   display: flex;
   justify-content: space-between;
-  width: 30%;
+  width: 50%;
 }
 
 .slidecontainer {
@@ -78,6 +79,7 @@ nav {
   font-size: 1.2rem;
   align-self: center;
 }
+
 .btn {
   align-items: center;
   background-color: #ffffff;
@@ -128,4 +130,58 @@ nav {
   box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
   color: rgba(0, 0, 0, 0.65);
   transform: translateY(0);
+}
+
+.sort-form {
+  align-self: center;
+}
+
+.sort-dropdown {
+  padding: 0.2em 0.6em;
+  border-radius: 0.25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  cursor: pointer;
+  font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica,
+    Arial, sans-serif;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+.sort-submit {
+  padding: 0.2em 0.6em;
+  border-radius: 0.25rem;
+  border: none;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  cursor: pointer;
+  font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica,
+    Arial, sans-serif;
+  font-size: 1em;
+  font-weight: 600;
+}
+@media (max-width: 1045px) {
+  .btn-container {
+    justify-content: flex-end;
+    display: none;
+  }
+  #visualiser-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 73vh;
+  }
+}
+@media (min-width: 1045px) {
+  nav {
+    justify-content: space-between;
+  }
+  .utility-div {
+    width: 30%;
+  }
+  .sort-dropdown {
+    display: none;
+  }
+  .sort-form {
+    display: none;
+  }
 }

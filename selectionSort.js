@@ -21,6 +21,8 @@ const btnQuickSort = document.querySelector(".btn-quick-sort");
 const elementCount = document.querySelector(".element-count");
 const sliderSpeed = document.getElementById("speedRange");
 const sliderSize = document.getElementById("sizeRange");
+const submit = document.querySelector(".sort-submit");
+const option = document.querySelector(".sort-dropdown");
 //Setting Default Speeds
 let speed = 0.75;
 let time = 1 / 3;
@@ -39,7 +41,7 @@ function insertBar(height, visContainer) {
   } else {
     barEl.classList.add("bar-small");
   }
-  barEl.style.height = `${height * 1.5}px`;
+  barEl.style.height = `${height * 2.7}px`;
   visContainer.appendChild(barEl);
 }
 
@@ -48,6 +50,7 @@ function load() {
     btn.disabled = true;
     btn.classList.add("inProgress");
   }
+  submit.disabled = true;
 }
 
 function timeComplexity(best, avg, worst) {
@@ -115,6 +118,7 @@ function highlightBar(i, colour) {
 function disableBtns() {
   sliderSize.disabled = true;
   btnNewArray.disabled = true;
+  submit.disabled = true;
   btnNewArray.classList.add("inProgress");
   for (const btn of sortbtns) {
     btn.disabled = true;
@@ -123,6 +127,7 @@ function disableBtns() {
 }
 
 function enableBtns() {
+  submit.disabled = false;
   sliderSize.disabled = false;
   for (const button of btn) {
     button.disabled = false;
@@ -318,8 +323,8 @@ class merge {
     await wait(time);
 
     for (let k = lo; k <= hi; k++) {
-      let heightI = this.aux[i] * 1.5;
-      let heightJ = this.aux[j] * 1.5;
+      let heightI = this.aux[i] * 2.7;
+      let heightJ = this.aux[j] * 2.7;
       if (i > mid) {
         bar[k].style.height = `${heightJ}px`;
         barsArray[k] = this.aux[j++];
@@ -484,6 +489,20 @@ btnNewArray.addEventListener("click", function () {
 
 btnContainer.addEventListener("click", function (e) {
   const sortName = extractSort(e) + "sort";
+  if (sortName === "heapsort") {
+    heap.sort(barsArray);
+  } else if (sortName === "mergesort") {
+    merge.mergeSort(barsArray);
+  } else if (sortName === "quicksort") {
+    quick.quicksort(barsArray);
+  } else {
+    window[sortName](barsArray);
+  }
+});
+
+submit.addEventListener("click", function (e) {
+  e.preventDefault();
+  const sortName = option.value + "sort";
   if (sortName === "heapsort") {
     heap.sort(barsArray);
   } else if (sortName === "mergesort") {
